@@ -2,6 +2,6 @@
 // The API key is not a secret: every Power-Up ships its key to the browser.
 // Each user's token stays private to them and is stored by Trello.
 window.SHUFFLER_CONFIG = {
-  appKey: 'PASTE_YOUR_API_KEY_HERE',
+  appKey: 'a7c9c2d9e7c18ba028f6d84174fe3af9',
   appName: 'List Shuffler'
 };
