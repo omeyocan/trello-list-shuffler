@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="./config.js"></script>
+  </head>
+  <body>
+    <p>List Shuffler needs permission to reorder cards on your boards. You only do this once.</p>
+    <button id="auth" class="mod-primary">Authorize</button>
+    <script>
+      const t = window.TrelloPowerUp.iframe(window.SHUFFLER_CONFIG);
+      document.getElementById('auth').addEventListener('click', () => {
+        t.getRestApi()
+          .authorize({ scope: 'read,write', expiration: 'never' })
+          .then(() => {
+            t.alert({ message: 'Authorized! Click “🎲 Shuffle cards” again.', duration: 4, display: 'success' });
+            t.closePopup();
+          })
+          .catch(() => t.alert({ message: 'Authorization was cancelled.', duration: 4 }));
+      });
+    </script>
+  </body>
+</html>
